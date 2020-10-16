@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var isPresented = false
     var body: some View {
-        Text("Hello, World!")
+      NavigationView{
+      Button("Show Modal") {
+        self.isPresented = true
+      }.sheet(isPresented: $isPresented){
+        ModalView()
+        }.navigationBarTitle("Xcode & Git")
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
